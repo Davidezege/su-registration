@@ -9,7 +9,8 @@ app.use(express.json());
 
 const allowedOrigins = [
   'https://su-youth-camp.netlify.app',
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'https://ornate-clafoutis-6a80e0.netlify.app'
 ];
 
 app.use(cors({

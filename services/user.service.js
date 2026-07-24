@@ -18,4 +18,16 @@ const register = async (fullName, category, gender, phone, pilgrimGroup, schoolN
     return user;
 };
 
-module.exports = { register };
+const getAllUsers = async () => {
+    const users = User.find();
+
+    if(!users) {
+        const err = new Error('No Users found');
+        err.status = 404;
+        return err;
+    }
+
+    return users
+}
+
+module.exports = { register, getAllUsers };

@@ -4,7 +4,6 @@ const register = async (req, res) => {
     try {
         const { fullName, category, gender, phone, pilgrimGroup, schoolName, campId, community, addtionalInfo } = req.body;
 
-        // Validate required fields (phone and schoolName are optional)
         const requiredFields = ['fullName', 'category', 'gender', 'campId', 'community'];
         const missing = requiredFields.filter(field => !req.body[field]);
         if (missing.length > 0) {
@@ -19,4 +18,16 @@ const register = async (req, res) => {
     }
 };
 
-module.exports = { register };
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await userService.getAllUsers();
+
+        res.status(200).json({
+            data: users
+        })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+module.exports = { register, getAllUsers };

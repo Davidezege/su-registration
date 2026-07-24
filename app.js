@@ -7,7 +7,7 @@ const connectDB = require('./config/db.config');
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: 'https://su-youth-camp.netlify.app'
+  origin: 'http://localhost:5173'
 }));
 
 dotenv.config();
